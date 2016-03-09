@@ -1,0 +1,11 @@
+{{d3-graph 
+  (pipe 
+    (d3-select-all 'circle') 
+    (d3-data (get data '[]'))
+  )
+  on-enter=(pipe (d3-append 'circle') (d3-attr cx=getXCoord cy=getYCoord r=getCircleRadius) (d3-on 'click' (action 'removeCircle'))
+  on-exit=(pipe (d3-remove))
+}}
+
+{{input value=radius}}
+<button {{action 'addCircle' radius}}>Add Circle</button>
