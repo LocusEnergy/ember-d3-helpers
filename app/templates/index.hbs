@@ -13,7 +13,7 @@
 {{d3-graph
   (pipe
     (d3-select-all 'circle')
-    (d3-data (get data '[]'))
+    (d3-data (get data '[]') getId)
   )
   
   (pipe (d3-append 'circle') 
@@ -37,7 +37,7 @@
 {{d3-graph
   (pipe
     (d3-select-all 'circle')
-    (d3-data (get data '[]'))
+    (d3-data (get data '[]') getId)
   )
   
   (pipe (d3-append 'circle') 
