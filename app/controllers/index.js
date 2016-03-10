@@ -11,18 +11,6 @@ export default Ember.Controller.extend({
   radius: 30,
   x: 120,
   y: 65,
-  getCircleRadius({r}) {
-    return r;
-  },
-  getXCoord({x}) {
-    return x;
-  },
-  getYCoord({y}) {
-    return y;
-  },
-  getId({id}) {
-    return id;
-  },
   actions: {
     addCircle(r) {
       let data = this.get('data');

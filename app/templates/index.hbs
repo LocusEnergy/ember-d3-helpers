@@ -13,11 +13,11 @@
 {{d3-graph
   (pipe
     (d3-select-all 'circle')
-    (d3-data (get data '[]') getId)
+    (d3-data (get data '[]') (d3-get 'id'))
   )
   
   (pipe (d3-append 'circle') 
-        (d3-attr r=getCircleRadius cx=getXCoord cy=getYCoord)
+        (d3-attr r=(d3-get 'r') cx=(d3-get 'y') cy=(d3-get 'x'))
         (d3-on 'click' (action 'removeCircle'))
   )
   
@@ -37,11 +37,11 @@
 {{d3-graph
   (pipe
     (d3-select-all 'circle')
-    (d3-data (get data '[]') getId)
+    (d3-data (get data '[]') (d3-get 'id'))
   )
   
   (pipe (d3-append 'circle') 
-        (d3-attr r=getCircleRadius cx=getXCoord cy=getYCoord)
+        (d3-attr r=(d3-get 'r') cx=(d3-get 'y') cy=(d3-get 'x'))
         (d3-on 'click' (action 'removeCircle'))
   )
             
