@@ -1,7 +1,3 @@
 {{#if d3el}}
-  {{invoke callback d3el}}
-  {{#if on-enter}}
-    {{log 'called'}}
-    {{invoke (pipe (d3-enter on-enter)) d3el}}
-   {{/if}}
+  {{yield (invoke callback d3el)}}
 {{/if}}
