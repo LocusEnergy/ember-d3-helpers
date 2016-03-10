@@ -2,7 +2,7 @@ import Ember from 'ember';
 import d3 from 'npm:d3';
 
 const D3Element = Ember.Component.extend({
-  tagName: 'svg',
+  tagName: 'g',
 
   didInsertElement() {
     this._super(...arguments);
@@ -16,7 +16,7 @@ const D3Element = Ember.Component.extend({
 });
 
 D3Element.reopenClass({
-  positionalParams: ['callback', 'on-enter', 'on-exit']
+  positionalParams: ['callback', 'enter', 'update', 'exit']
 });
 
 export default D3Element;

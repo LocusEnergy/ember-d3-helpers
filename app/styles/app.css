@@ -1,0 +1,27 @@
+.background {
+  fill: #fafafa;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.y.axis .tick line {
+  stroke: #e5e5e5;
+}
+
+.d3-line {
+  fill: none;
+  stroke-width: 1.5px;
+}
+
+.x.axis path {
+  display: none;
+}
+
+circle {
+  fill: steelblue;
+}

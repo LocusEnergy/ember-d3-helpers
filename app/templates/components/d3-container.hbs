@@ -1,0 +1,12 @@
+<rect class="background" width="100%" height="100%" />
+
+<g transform="translate({{get margin 'left'}},{{get margin 'top'}})">
+
+  {{yield (hash
+    d3data=d3data
+    x=xScale
+    y=yScale
+    color=color
+  )}}
+
+</g>
