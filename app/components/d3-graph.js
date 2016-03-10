@@ -16,7 +16,7 @@ const D3Element = Ember.Component.extend({
 });
 
 D3Element.reopenClass({
-  positionalParams: ['callback']
+  positionalParams: ['callback', 'on-enter', 'on-exit']
 });
 
 export default D3Element;
