@@ -1,8 +1,8 @@
 import Ember from 'ember';
 
-export function d3Data([data]/*, hash*/) {
+export function d3Data([data, key]/*, hash*/) {
   return function(d3el) {
-    return d3el.data(data);
+    return d3el.data(data, key);
   };
 }
 

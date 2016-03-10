@@ -2,6 +2,14 @@
 
 <p>You can add a circle with "Add circle" button and remove a circle by clicking on it.</p>
 
+<div>
+  <label>X: {{input value=x}}</label>
+  <label>Y: {{input value=y}}</label>
+  <label>Radius: {{input value=radius}}</label>
+  
+  <button {{action 'addCircle' radius}}>Add Circle</button>
+</div>
+
 {{d3-graph
   (pipe
     (d3-select-all 'circle')
@@ -19,12 +27,12 @@
   )
 }}
 
-{{input value=radius}}
-<button {{action 'addCircle' radius}}>Add Circle</button>
-
 <hr>
 <h2>Conditional</h2>
 <p>You can toggle animation.</p>
+<div>
+  <button {{action (toggle 'isDelayed' this)}}>{{if isDelayed 'No' 'With'}} Delay</button>
+</div>
 
 {{d3-graph
   (pipe
@@ -44,4 +52,3 @@
   )
 }}
 
-<button {{action (toggle 'isDelayed' this)}}>{{if isDelayed 'No' 'With'}} Delay</button>
