@@ -1,3 +1,7 @@
 {{#if d3el}}
-  {{yield (compute callback d3el)}}
+  {{#with (compute callback d3el) as |data|}}
+    {{yield data}}
+    {{if on-enter (invoke on-enter data)}}
+    {{if on-exit (invoke on-exit data)}}
+  {{/with}}
 {{/if}}
