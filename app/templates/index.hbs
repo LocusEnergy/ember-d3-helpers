@@ -4,8 +4,11 @@
     (d3-data (get data '[]'))
   ) as |data|
 }}
-  {{invoke (pipe d3-enter (d3-append 'circle')) data}}
-  {{invoke (pipe d3-exit d3-remove) data}}
+  {{invoke (d3-enter (pipe  (d3-append 'circle') 
+                            (d3-attr r=getCircleRadius cx=getXCoord cy=getYCoord)
+                            (d3-on 'click' (action 'removeCircle')
+                      ))) data}}
+  {{invoke (d3-exit (pipe (d3-remove))) data}}
 {{/d3-graph}}
 
 {{input value=radius}}
