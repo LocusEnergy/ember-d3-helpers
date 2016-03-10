@@ -1,15 +1,16 @@
-{{#d3-graph
+{{d3-graph
   (pipe
     (d3-select-all 'circle')
     (d3-data (get data '[]'))
-  ) 
+  )
+  
   on-enter=(d3-enter (pipe  (d3-append 'circle') 
                             (d3-attr r=getCircleRadius cx=getXCoord cy=getYCoord)
                             (d3-on 'click' (action 'removeCircle')
                       )))
-  on-exit=(d3-exit (pipe (d3-remove)))
+                      
+  on-exit=(d3-exit (pipe (d3-transition) (d3-attr r=0) (d3-remove)))
 }}
-{{/d3-graph}}
 
 {{input value=radius}}
 <button {{action 'addCircle' radius}}>Add Circle</button>
