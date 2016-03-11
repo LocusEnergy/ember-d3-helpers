@@ -66,6 +66,14 @@
 
 {{#d3-container timeseriesData as |chart|}}
   {{d3-graph
+    (pipe (d3-transition) (d3-axis chart.x 'bottom'))
+  }}
+
+  {{d3-graph
+    (pipe (d3-transition) (d3-axis chart.y 'left'))
+  }}
+
+  {{d3-graph
     (pipe (d3-select-all 'path')
           (d3-data (get chart.d3data '[]') (d3-get 'id'))
     )
@@ -80,8 +88,6 @@
           (d3-attr d=(d3-callback (d3-line chart.x chart.y) 'timeseries'))
     )
 
-    exit=(pipe (d3-transition)
-          (d3-remove)
-    )
+    exit=(pipe (d3-transition) (d3-remove))
   }}
 {{/d3-container}}
