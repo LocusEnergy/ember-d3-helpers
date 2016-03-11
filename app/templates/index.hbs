@@ -65,9 +65,11 @@
 </div>
 
 {{#d3-container timeseriesData as |chart|}}
+  {{#with (concat 'translate(0,' chart.height ')') as |translate|}}
   {{d3-graph
-    (pipe (d3-transition) (d3-attr class='axis') (d3-axis chart.x 'top'))
+    (pipe (d3-transition) (d3-attr class='axis' transform=translate) (d3-axis chart.x 'top'))
   }}
+  {{/with}}
 
   {{d3-graph
     (pipe (d3-transition) (d3-attr class='axis') (d3-axis chart.y 'left'))
