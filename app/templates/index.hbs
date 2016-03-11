@@ -66,11 +66,11 @@
 
 {{#d3-container timeseriesData as |chart|}}
   {{d3-graph
-    (pipe (d3-transition) (d3-axis chart.x 'bottom'))
+    (pipe (d3-transition) (d3-attr class='axis') (d3-axis chart.x 'top'))
   }}
 
   {{d3-graph
-    (pipe (d3-transition) (d3-axis chart.y 'left'))
+    (pipe (d3-transition) (d3-attr class='axis') (d3-axis chart.y 'left'))
   }}
 
   {{d3-graph
