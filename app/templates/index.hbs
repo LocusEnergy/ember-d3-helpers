@@ -1,4 +1,4 @@
-{{!--
+
 <h2>Circles</h2>
 
 <p>You can add a circle with "Add circle" button and remove a circle by clicking on it.</p>
@@ -23,13 +23,15 @@
           (d3-on 'click' (action 'removeCircle'))
     )
 
+    (pipe (d3-transition))
+
     (pipe (d3-transition)
           (d3-attr r=0)
           (d3-remove)
     )
   }}
 {{/d3-container}}
-
+{{!--
 <hr>
 <h2>Conditional</h2>
 <p>You can toggle animation.</p>
@@ -53,9 +55,9 @@
         (d3-attr r=0)
         (d3-remove)
   )
-}} --}}
+}}
 
-<hr>
+<hr> --}}
 
 <h2>Timeseries</h2>
 <div>
