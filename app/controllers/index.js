@@ -57,8 +57,14 @@ export default Ember.Controller.extend({
       let data = this.get('data');
       data.removeObject(item);
     },
-    switchTimeseries() {
-      this.set('timeseriesData', timeseries.filterBy('interval', 'weekly'))
+    toggleData() {
+      let t = this.get('timeseriesData');
+      if (t.length === 1) {
+        this.set('timeseriesData', timeseries.filterBy('interval', 'weekly'))
+      } else {
+        this.set('timeseriesData', timeseries.filterBy('interval', 'daily'))
+      }
+
     }
   }
 });
