@@ -2,7 +2,7 @@ import Ember from 'ember';
 import d3 from 'npm:d3';
 
 export function d3Line([xScale, yScale]/*, hash*/) {
-  return d3.svg.line()
+  return d3.svg.line().interpolate('basis')
     .x((d) => xScale(d[0]))
     .y((d) => yScale(d[1]));
 }

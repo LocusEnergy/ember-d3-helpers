@@ -81,13 +81,13 @@
     )
 
     enter=(pipe (d3-append 'path')
-          (d3-attr d=(d3-callback (d3-line chart.x chart.y) 'timeseries'))
+          (d3-attr d=(pipe (d3-get 'timeseries') (d3-line chart.x chart.y)))
           (d3-attr class='d3-line')
-          (d3-style stroke=(d3-callback chart.color 'id'))
+          (d3-style stroke=(pipe (d3-get 'id') chart.color))
     )
 
     update=(pipe (d3-transition)
-          (d3-attr d=(d3-callback (d3-line chart.x chart.y) 'timeseries'))
+          (d3-attr d=(pipe (d3-get 'timeseries') (d3-line chart.x chart.y)))
     )
 
     exit=(pipe (d3-transition) (d3-remove))
