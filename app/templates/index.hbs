@@ -70,17 +70,17 @@
           (d3-data (get chart.d3data '[]') (d3-get 'id'))
     )
 
-    (pipe (d3-append 'path')
+    enter=(pipe (d3-append 'path')
           (d3-attr d=(d3-callback (d3-line chart.x chart.y) 'timeseries'))
           (d3-attr class='d3-line')
           (d3-style stroke=(d3-callback chart.color 'id'))
     )
 
-    (pipe (d3-transition)
+    update=(pipe (d3-transition)
           (d3-attr d=(d3-callback (d3-line chart.x chart.y) 'timeseries'))
     )
 
-    (pipe (d3-transition)
+    exit=(pipe (d3-transition)
           (d3-remove)
     )
   }}
