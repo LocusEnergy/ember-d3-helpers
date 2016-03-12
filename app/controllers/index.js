@@ -39,7 +39,7 @@ export default Ember.Controller.extend({
   x: 120,
   y: 65,
 
-  timeseriesData: filterTimeseries('daily'),
+  timeseriesData: filterTimeseries('weekly'),
 
   actions: {
     addCircle(r) {

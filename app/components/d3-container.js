@@ -22,6 +22,7 @@ let getDomains = (t) => extent(t, getIndependentValue);
 let colorFn = d3.scale.category20();
 
 const D3Container = Ember.Component.extend({
+  getIndependentValue(d) { return d[0]; },
   classNames: ['d3-container'],
   tagName: 'svg',
 
@@ -76,14 +77,21 @@ const D3Container = Ember.Component.extend({
   */
   d3data: compute.map('data', parseTimeseries),
   timeseries: compute.mapBy('d3data', 'timeseries'),
-  domains: compute.map('timeseries', getDomains),
+  domains: compute.map('timeseries', function(t) {
+
+    // turn this into subexpressions even further,
+    // then build back up with pipe
+    return extent(t, function(d) {
+      return d[0]
+    })
+  }),
   domain: compute.alias('domains.firstObject'),
 
-  @computed('domain', 'width')
-  xScale(domain, width) {
-    let range = [0, width];
-    return d3.time.scale().range(range).domain(domain);
-  },
+  // @computed('domain', 'width')
+  // xScale(domain, width) {
+  //   let range = [0, width];
+  //   return d3.time.scale().range(range).domain(domain);
+  // },
 
   @computed('timeseries', 'height')
   yScale(timeseries, height) {

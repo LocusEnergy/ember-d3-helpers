@@ -2,12 +2,16 @@
 
 <g transform="translate({{get margin 'left'}},{{get margin 'top'}})">
 
+  {{log (map timeseries (pipe d3-extent getIndependentValue))}}
+
   {{yield (hash
     d3data=d3data
-    x=xScale
+    x=(d3-scale 'time' domain=domain range=(array 0 width))
     y=yScale
     color=color
     height=height
   )}}
 
 </g>
+
+{{!-- y=(d3-scale 'linear' domain= range=(array height 0)) --}}
