@@ -10,7 +10,6 @@ const TIMESTAMP_KEY = 'ts';
 
 let getIndependentValue = (d) => d[0];
 let getDependentValue = (d) => d[1];
-let isNotTimestamp = (k) => !isEqual(k, TIMESTAMP_KEY);
 let dateFormatFn = d3.time.format.iso.parse;
 let orderedPair = (d, yKey) => [dateFormatFn(d[TIMESTAMP_KEY]), d[yKey]];
 let parseTimeseries = ({ id, data, datatype: yKey }) => {
@@ -23,7 +22,6 @@ let colorFn = d3.scale.category20();
 
 const D3Container = Ember.Component.extend({
   classNames: ['d3-container'],
-  tagName: 'svg',
 
   rawWidth: 960,
   rawHeight: 500,
@@ -35,18 +33,22 @@ const D3Container = Ember.Component.extend({
   },
 
   didInsertElement() {
-    if (this.get('timeseries.length') > 1) {
-      Ember.assert('All dataseries must have the same beginning and end timestamps', _.isEqual(...this.get('domains')));
-    }
+    this._super(...arguments);
+    Ember.run.scheduleOnce('afterRender', this, 'renderGraph');
+    // if (this.get('timeseries.length') > 1) {
+    //   Ember.assert('All dataseries must have the same beginning and end timestamps', _.isEqual(...this.get('domains')));
+    // }
+  },
+
+  renderGraph() {
     let { top, right, bottom, left } = this.get('margin');
     let width = this.get('width') + left + right;
     let height = this.get('height') + top + bottom;
     let viewBoxDimensions = `0 0 ${width} ${height}`;
 
-    let [ el ] = this.$().toArray();
+    let [ el ] = this.$('svg').toArray();
     d3.select(el)
       .attr('viewBox', viewBoxDimensions)
-      // .attr('preserveAspectRatio', 'xMidYMid meet')
   },
 
   /**
