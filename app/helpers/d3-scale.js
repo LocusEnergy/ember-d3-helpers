@@ -8,7 +8,12 @@ export function d3Scale([scaleType], { domain, range }) {
   } else {
     scale = d3.scale[scaleType]();
   }
-  return scale.domain(domain).range(range);
+
+  if (domain && range) {
+    return scale.domain(domain).range(range);
+  } else {
+    return scale;
+  }
 }
 
 export default Ember.Helper.helper(d3Scale);
