@@ -2,16 +2,23 @@
 
 <g transform="translate({{get margin 'left'}},{{get margin 'top'}})">
 
-  {{log (map timeseries (pipe d3-extent getIndependentValue))}}
-
   {{yield (hash
     d3data=d3data
-    x=(d3-scale 'time' domain=domain range=(array 0 width))
-    y=yScale
+    x=(d3-scale 'time'
+      domain=(get (map timeseries (d3-api 'extent' (pipe (d3-get '0')))) 'firstObject')
+      range=(array 0 width)
+    )
+
+    y=(d3-scale 'linear'
+      domain=(array
+              (compute (d3-api 'min' timeseries (d3-api 'min' (pipe (d3-get '1')))))
+              (compute (d3-api 'max' timeseries (d3-api 'max' (pipe (d3-get '1')))))
+              )
+      range=(array height 0)
+    )
+
     color=color
     height=height
   )}}
 
 </g>
-
-{{!-- y=(d3-scale 'linear' domain= range=(array height 0)) --}}

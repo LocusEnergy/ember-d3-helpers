@@ -6,7 +6,7 @@ export function d3Scale([scaleType], { domain, range }) {
   if (Ember.isEqual(scaleType, 'time')) {
     scale = d3.time.scale();
   } else {
-    scale = d3.call(scaleType);
+    scale = d3.scale[scaleType]();
   }
   return scale.domain(domain).range(range);
 }
