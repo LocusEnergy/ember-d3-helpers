@@ -77,11 +77,7 @@ const D3Container = Ember.Component.extend({
   * @returns {Array}
   */
   d3data: compute.map('data', parseTimeseries),
-  timeseries: compute.mapBy('d3data', 'timeseries'),
-  domains: compute.map('timeseries', getDomains),
-  domain: compute.alias('domains.firstObject'),
-
-  color: colorFn
+  timeseries: compute.mapBy('d3data', 'timeseries')
 });
 
 D3Container.reopenClass({

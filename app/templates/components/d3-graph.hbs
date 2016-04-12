@@ -1,7 +1,9 @@
 {{#if d3el}}
   {{#with (compute callback d3el) as |data|}}
+
     {{!-- why do we need to yield data? --}}
     {{!-- {{yield data}} --}}
+
     {{invoke (d3-enter enter) data}}
     {{invoke (d3-update update) data}}
     {{invoke (d3-exit exit) data}}
