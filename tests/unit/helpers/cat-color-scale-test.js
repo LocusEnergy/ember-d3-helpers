@@ -3,27 +3,35 @@ import { module, test } from 'qunit';
 
 module('Unit | Helper | cat color scale');
 
-// Replace this with your real tests.
-test('it works', function(assert) {
+test('it functions as a scale helper', function (assert) {
   assert.throws(() => {
     catColorScale([42], {});
   }, 'throws on an incorrect scale name');
 
   let result;
   result = catColorScale(['10'], {});
+  assert.equal(result(10), '#1f77b4');
+  result = catColorScale(['10', [10, 20]], {});
+  assert.equal(result(11), '#2ca02c');
+  assert.notEqual(result(10), result(11));
+});
+
+test('scheme 10', function (assert) {
+  let result = catColorScale(['10'], {});
   assert.equal(result(0), '#1f77b4');
+});
 
-  let opts = [{}, {}];
-  result = catColorScale(['10', opts], {});
-  assert.equal(result(opts[0]), '#1f77b4');
-  assert.notEqual(result(opts[0]), result(opts[1]));
+test('scheme 20', function (assert) {
+  let result = catColorScale(['20'], {});
+  assert.equal(result(0), '#1f77b4');
+});
 
-  result = catColorScale(['20']);
-  assert.ok(result, 'category 20 works');
+test('scheme 20b', function (assert) {
+  let result = catColorScale(['20b'], {});
+  assert.equal(result(0), '#393b79');
+});
 
-  result = catColorScale(['20b']);
-  assert.ok(result, 'category 20b works');
-
-  result = catColorScale(['20c']);
-  assert.ok(result, 'category 20c works');
+test('scheme 20c', function (assert) {
+  let result = catColorScale(['20c'], {});
+  assert.equal(result(0), '#3182bd');
 });

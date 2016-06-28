@@ -1,42 +1,42 @@
 import Ember from 'ember';
 import {
-  scaleViridis,
-  scaleInferno,
-  scaleMagma,
-  scalePlasma,
-  scaleWarm,
-  scaleCool,
-  scaleRainbow,
-  scaleCubehelix
+  scaleSequential,
+  interpolateViridis,
+  interpolateInferno,
+  interpolateMagma,
+  interpolatePlasma,
+  interpolateWarm,
+  interpolateCool,
+  interpolateRainbow,
+  interpolateCubehelixDefault
 } from 'd3-scale';
 const {
-  get,
   assert,
-  isEmpty,
-  String: { capitalize }
+  isPresent,
+  String: { camelize, underscore },
 } = Ember;
 
 const SCALES = {
-  scaleViridis,
-  scaleInferno,
-  scaleMagma,
-  scalePlasma,
-  scaleWarm,
-  scaleCool,
-  scaleRainbow,
-  scaleCubehelix
+  viridis: interpolateViridis,
+  inferno: interpolateInferno,
+  magma: interpolateMagma,
+  plasma: interpolatePlasma,
+  warm: interpolateWarm,
+  cool: interpolateCool,
+  rainbow: interpolateRainbow,
+  cubehelix: interpolateCubehelixDefault,
 };
 
 export function seqColorScale([type, domain]) {
-  let capType = `scale${capitalize(type.toString().toLowerCase())}`;
-  assert(`${type} is not a valid sequential color scale name`, capType in SCALES);
+  let capType = camelize(underscore(type.toString()).replace(/^interpolate/, ''));
+  let interpolator = SCALES[capType];
 
-  let scaleType = get(SCALES, capType);
+  assert(`${capType} ${type} is not a valid sequential color interpolator, please see d3-scale for options`, isPresent(interpolator));
 
-  let scale = scaleType();
+  let scale = scaleSequential(interpolator);
 
-  // If a scale was provided.
-  if (!isEmpty(domain)) {
+  // If a domain was provided.
+  if (isPresent(domain)) {
     scale.domain(domain);
   }
 

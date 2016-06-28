@@ -1,39 +1,36 @@
 import Ember from 'ember';
 import {
-  scaleCategory10,
-  scaleCategory20b,
-  scaleCategory20c,
-  scaleCategory20
+  scaleOrdinal,
+  schemeCategory10,
+  schemeCategory20b,
+  schemeCategory20c,
+  schemeCategory20
 } from 'd3-scale';
-import guidDomainScale from '../utils/guid-domain-scale';
+
+// import guidDomainScale from '../utils/guid-domain-scale';
 const {
-  get,
   assert,
-  isEmpty
+  isPresent,
 } = Ember;
 const SCALES = {
-  scaleCategory10,
-  scaleCategory20b,
-  scaleCategory20c,
-  scaleCategory20
-};
-
-const WHITELIST = {
-  '10': true,
-  '20': true,
-  '20b': true,
-  '20c': true
+  10: schemeCategory10,
+  '20b': schemeCategory20b,
+  '20c': schemeCategory20c,
+  20: schemeCategory20,
 };
 
 export function catColorScale([type, domain]) {
   let capType = type.toString().toLowerCase();
-  assert(`${type} is not a valid sequential color scale name`, capType in WHITELIST);
 
-  let catScale = get(SCALES, `scaleCategory${capType}`);
-  let scale = guidDomainScale(catScale());
+  let catScale = SCALES[capType];
+  assert(`${type} is not a valid sequential color scale name`, !!catScale);
 
-  // If a scale was provided.
-  if (!isEmpty(domain)) {
+  // let scale = guidDomainScale(catScale);
+
+  let scale = scaleOrdinal(catScale);
+
+  // If a domain was provided.
+  if (isPresent(domain)) {
     scale.domain(domain);
   }
 

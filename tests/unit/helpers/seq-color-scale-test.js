@@ -3,8 +3,7 @@ import { module, test } from 'qunit';
 
 module('Unit | Helper | seq color scale');
 
-// Replace this with your real tests.
-test('it works', function(assert) {
+test('it functions as a sequential color scale helper', function (assert) {
   assert.throws(() => {
     seqColorScale([42], {});
   }, 'throws on an incorrect scale name');
@@ -22,7 +21,7 @@ test('it works', function(assert) {
   result = seqColorScale(['INFERNO'], {});
   assert.ok(result, 'inferno is a valid scale type');
 
-  result = seqColorScale(['plaSma'], {});
+  result = seqColorScale(['plasma'], {});
   assert.ok(result, 'plasma is a valid scale type');
 
   result = seqColorScale(['Warm'], {});
