@@ -5,6 +5,14 @@ module('Unit | Helper | d3 tick format');
 
 // Replace this with your real tests.
 test('it works', function(assert) {
-  let result = d3TickFormat([42]);
-  assert.ok(result);
+  let tickFunction = function(timeFormatter) {
+    console.log(timeFormatter);
+    return function(d) {
+      return timeFormatter('%A')(d);
+    };
+  };
+  let functionResult = d3TickFormat([tickFunction]);
+  assert.ok(functionResult);
+  let stringResult = d3TickFormat(['%A']);
+  assert.ok(stringResult);
 });
