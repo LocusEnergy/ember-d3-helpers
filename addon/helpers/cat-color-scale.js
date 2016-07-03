@@ -6,12 +6,13 @@ import {
   schemeCategory20c,
   schemeCategory20
 } from 'd3-scale';
+import guidDomainScale from '../utils/guid-domain-scale';
 
-// import guidDomainScale from '../utils/guid-domain-scale';
 const {
   assert,
   isPresent,
 } = Ember;
+
 const SCALES = {
   10: schemeCategory10,
   '20b': schemeCategory20b,
@@ -25,9 +26,7 @@ export function catColorScale([type, domain]) {
   let catScale = SCALES[capType];
   assert(`${type} is not a valid sequential color scale name`, !!catScale);
 
-  // let scale = guidDomainScale(catScale);
-
-  let scale = scaleOrdinal(catScale);
+  let scale = guidDomainScale(catScale);
 
   // If a domain was provided.
   if (isPresent(domain)) {
