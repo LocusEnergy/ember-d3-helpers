@@ -23,12 +23,11 @@ const SCALES = {
 export function catColorScale([type, domain]) {
   let capType = type.toString().toLowerCase();
 
-  let catScale = SCALES[capType];
-  assert(`${type} is not a valid sequential color scale name`, !!catScale);
+  let catScheme = SCALES[capType];
+  assert(`${type} is not a valid sequential color scale name`, !!catScheme);
 
-  let scale = guidDomainScale(catScale);
+  let scale = guidDomainScale(scaleOrdinal(catScheme));
 
-  // If a domain was provided.
   if (isPresent(domain)) {
     scale.domain(domain);
   }
