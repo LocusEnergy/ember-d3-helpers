@@ -24,7 +24,7 @@ test('it works', function(assert) {
   let pieData = pie(data);
   let arcs = pieData.map(({ startAngle, endAngle }) => (endAngle - startAngle).toFixed(6));
 
-  assert.ok(pieData);
-  assert.deepEqual(arcs, ["2.094395", "2.094395", "2.094395"], 'The number of Arcs is correct and they are returning the correct number of radians');
+  assert.equal(pieData.length, 3, 'The number of calculated arcs is correct');
+  assert.deepEqual(arcs, ["2.094395", "2.094395", "2.094395"], 'returning the correct number of radians');
 
 });
