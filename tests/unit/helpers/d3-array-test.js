@@ -19,7 +19,7 @@ test('can use max method', function(assert) {
     {
       a: 67
     }
-  ]
+  ];
 
   let accessorFn = ({ a }) => a;
 
@@ -43,7 +43,5 @@ test('can use permute method', function(assert) {
 });
 
 test('throws an error if using unsupported method', function(assert) {
-  assert.throws(() => {
-    d3Array(['bisect']);
-  }, 'this method is not yet supported')
+  assert.throws(() => d3Array(['bisect']), 'this method is not yet supported');
 });
