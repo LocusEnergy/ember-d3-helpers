@@ -26,6 +26,10 @@ test('can use max method', function(assert) {
   assert.equal(d3Array(['max', data, accessorFn ]), 67, 'can pass optional accessor function as final argument');
 });
 
+test('can use extent method', function(assert) {
+  assert.deepEqual(d3Array(['extent', [2, 15, 20]]), [2, 20], 'works as expected');
+});
+
 test('can use merge method', function(assert) {
   assert.deepEqual(d3Array(['merge', [['a', 'b'], ['c']]]), ['a', 'b', 'c']);
 });
