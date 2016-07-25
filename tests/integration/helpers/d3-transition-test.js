@@ -1,7 +1,7 @@
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 
-moduleForComponent('d3-transition', 'Integration | Component | d3 transition', {
+moduleForComponent('d3-transition', 'Integration | Component | d3-transition', {
   integration: true
 });
 
