@@ -18,6 +18,9 @@ You can view a demo of a few ways to use these helpers [here](http://locusenergy
 
 ## Available Helpers
 
+* [Transition Helpers]
+  - [`d3-transition`](#d3-transition)
+  - [`d3-transition-delay`](#d3-transition-delay)
 * [Linear Scales](#linear-scales)
 	- [`linear-scale`](#linear-scale)
 	- [`time-scale`](#time-scale)
@@ -34,6 +37,41 @@ You can view a demo of a few ways to use these helpers [here](http://locusenergy
 	- [`time-interval`](#time-interval)
 
 ## Usage
+
+### Transition Helpers
+
+#### `(d3-transition [transition])`
+[D3 Transition](https://github.com/d3/d3-transition/blob/master/README.md#transition)
+
+Apply transition to a selection. Transition can be a name for this transition or a parent transition. 
+
+```hbs
+{{d3-join 'rect' data
+  enter=(pipe
+    (d3-append 'rect')
+    (d3-attr height)
+    (d3-transition)
+    (d3-attr (r/get 'y'))
+  )
+}}
+```
+
+#### `(d3-transition-delay amount)`
+[D3 Transition Delay](https://github.com/d3/d3-transition/blob/master/README.md#transition_delay)
+
+Apply a delay to a transition. Must be chained behind a transition.
+
+```hbs
+{{d3-join 'rect' data
+  enter=(pipe
+    (d3-append 'rect')
+    (d3-attr height)
+    (d3-transition)
+    (d3-delay 300)
+    (d3-attr (r/get 'y'))
+  )
+}}
+```
 
 ### Linear scales
 
