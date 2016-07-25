@@ -21,9 +21,11 @@ You can view a demo of a few ways to use these helpers [here](http://locusenergy
   - [`d3-select`](#d3-select)
   - [`d3-select-all`](#d3-select-all)
   - [`d3-attr`](#d3-attr)
+  - [`d3-call`](#d3-call)
 * [Transition Helpers]
   - [`d3-transition`](#d3-transition)
   - [`d3-transition-delay`](#d3-transition-delay)
+  - [`d3-attr-tween`](#d3-attr-tween)
 * [Linear Scales](#linear-scales)
 	- [`linear-scale`](#linear-scale)
 	- [`time-scale`](#time-scale)
@@ -139,6 +141,13 @@ Apply a delay to a transition. Must be chained behind a transition.
   )
 }}
 ```
+
+#### `(d3-attr-tween)`
+[D3 Attr Tween](https://github.com/d3/d3-transition/blob/master/README.md#transition_attrTween)
+
+For each selected element, creates a tween for the attribute with the specified name with the specified interpolator value. 
+
+Good description of `transition.attrTween` can be found in [this example](http://bl.ocks.org/cmdoptesc/6228457).
 
 ### Linear scales
 
