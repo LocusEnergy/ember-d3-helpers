@@ -19,6 +19,8 @@ You can view a demo of a few ways to use these helpers [here](http://locusenergy
 ## Available Helpers
 * [Selection Helpers]
   - [`d3-select`](#d3-select)
+  - [`d3-select-all`](#d3-select-all)
+  - [`d3-attr`](#d3-attr)
 * [Transition Helpers]
   - [`d3-transition`](#d3-transition)
   - [`d3-transition-delay`](#d3-transition-delay)
@@ -41,7 +43,7 @@ You can view a demo of a few ways to use these helpers [here](http://locusenergy
 
 ### Selection Helpers
 
-#### `(d3-select selector)
+#### `(d3-select selector)`
 [D3 Select](https://github.com/d3/d3-selection#select)
 
 Select an element matching selector and return a selection object.
@@ -50,6 +52,33 @@ Select an element matching selector and return a selection object.
 {{shhh (compute (pipe 
   (d3-select "#my-link")
   (d3-attr "name" "fred")
+  ))
+}}
+```
+
+#### `(d3-select-all selector)`
+[D3 Select All](https://github.com/d3/d3-selection#selectAll)
+
+Selects all elements that match the specified selector string.
+
+```hbs
+{{shhh (compute (pipe
+    (d3-select-all "rect")
+    (d3-join data)
+    (d3-style "color" "red")
+  ))
+}}
+```
+
+#### `(d3-attr name value)`
+[D3 Attr](https://github.com/d3/d3-selection#selection_attr)
+
+Set attribute with specified name to specified value. Value can be a string or a function.
+
+```hbs
+{{shhh (compute (pipe
+    (d3-select ".myelement")
+    (d3-attr "name" name)
   ))
 }}
 ```
