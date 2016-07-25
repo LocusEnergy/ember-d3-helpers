@@ -83,6 +83,28 @@ Set attribute with specified name to specified value. Value can be a string or a
 }}
 ```
 
+#### `(d3-call (pipe ...))`
+[D3 Call](https://github.com/d3/d3-selection#selection_call)
+
+Invokes the specified function exactly once, passing in this selection along with any optional arguments.
+
+```hbs
+{{shhh (compute (pipe 
+    (d3-select ".test-items")
+    (d3-call (pipe 
+      (d3-select-all ".car")
+      (d3-attr "color" "red")
+    ))
+    (d3-call (pipe
+      (d3-select-all ".boat")
+      (d3-attr "color" "blue")
+    ))
+    (d3-append 'i')
+    (d3-attr "class" "truck")
+  ))
+}}
+```
+
 ### Transition Helpers
 
 #### `(d3-transition [transition])`

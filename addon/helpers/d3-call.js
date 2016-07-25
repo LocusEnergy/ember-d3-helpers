@@ -1,8 +1,8 @@
 import Ember from 'ember';
 
-export function d3Call([ callback ]) {
+export function d3Call([ callback, ...args ]) {
   return function(d3el) {
-    return d3el.call(callback);
+    return d3el.call(callback, ...args);
   };
 }
 
