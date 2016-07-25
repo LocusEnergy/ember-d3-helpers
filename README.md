@@ -20,6 +20,7 @@ You can view a demo of a few ways to use these helpers [here](http://locusenergy
 * [Selection Helpers]
   - [`d3-select`](#d3-select)
   - [`d3-select-all`](#d3-select-all)
+  - [`d3-join`](#d3-join)
   - [`d3-attr`](#d3-attr)
   - [`d3-call`](#d3-call)
 * [Transition Helpers]
@@ -68,6 +69,32 @@ Selects all elements that match the specified selector string.
     (d3-select-all "rect")
     (d3-join data)
     (d3-style "color" "red")
+  ))
+}}
+```
+
+#### `(d3-join selector data accessor [enter=] [update=] [exit=])`
+
+Helper for implementing D3's general update pattern. This helper doesn't have a corresponding function in the API because 
+this helper represents a pattern rather than a specific function in the API. Use it when you need to specify `selection.enter().update().exit()`.
+
+Read more about [D3's General Update Pattern](https://bl.ocks.org/mbostock/3808218). 
+
+```hbs
+{{shhh (compute (pipe
+    (d3-select 'svg')
+    (d3-join 'rect' data
+      enter=(pipe
+        (d3-append 'rect')
+        (d3-text (r/param))
+      )
+      update=(pipe
+        (d3-text (r/param))
+      )
+      exit=(pipe
+        (d3-remove)
+      )
+    )
   ))
 }}
 ```
