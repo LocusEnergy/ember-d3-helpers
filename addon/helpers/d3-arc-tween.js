@@ -9,7 +9,7 @@ function d3ArcTween([arc]) {
     return function(t) {
       return arc(i(t));
     };
-  }
+  };
 }
 
 export default Ember.Helper.helper(d3ArcTween);
