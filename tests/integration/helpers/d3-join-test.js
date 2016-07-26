@@ -15,10 +15,12 @@ test('it renders', function(assert) {
 
     {{#if ready}}
       {{shhh (compute (pipe
-          (d3-select 'svg')
-          (d3-join 'rect' data
+          (d3-select "svg")
+          (d3-select-all "rect")
+          (d3-data data)
+          (d3-join
             enter=(pipe
-              (d3-append 'rect')
+              (d3-append "rect")
               (d3-text (r/param))
             )
           )
@@ -46,10 +48,12 @@ test('it updated', function(assert) {
 
     {{#if ready}}
       {{shhh (compute (pipe
-          (d3-select 'svg')
-          (d3-join 'rect' data
+          (d3-select "svg")
+          (d3-select-all "rect")
+          (d3-data data)
+          (d3-join
             enter=(pipe
-              (d3-append 'rect')
+              (d3-append "rect")
               (d3-text (r/param))
             )
             update=(pipe

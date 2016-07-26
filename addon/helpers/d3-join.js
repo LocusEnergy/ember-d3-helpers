@@ -1,21 +1,21 @@
 import Ember from 'ember';
 
-export function d3Join([selector, data, accessor], { enter, update, exit }) {
-  return function(d3el){
-    let joined = d3el.selectAll(selector).data(data, accessor);
+export function d3Join(params, { enter, update, exit }) {
+  return function(selection){
 
     if (update) {
-      update(joined);
+      update(selection);
     }
 
     if (enter) {
-      joined.enter().call(enter);
+      selection.enter().call(enter);
     }
 
     if (exit) {
-      joined.exit().call(exit);
+      selection.exit().call(exit);
     }
-    return d3el;
+
+    return selection;
   };
 }
 

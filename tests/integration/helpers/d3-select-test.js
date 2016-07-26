@@ -1,7 +1,7 @@
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 
-moduleForComponent('d3-select', 'Integration | Component | d3-select', {
+moduleForComponent('d3-select', 'Integration | Helper | d3-select', {
   integration: true
 });
 

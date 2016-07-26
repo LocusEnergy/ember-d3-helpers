@@ -102,10 +102,12 @@ Read more about [D3's General Update Pattern](https://bl.ocks.org/mbostock/38082
 
 ```hbs
 {{shhh (compute (pipe
-    (d3-select 'svg')
-    (d3-join 'rect' data
+    (d3-select "svg")
+    (d3-select-all "rect")
+    (d3-data data)
+    (d3-join
       enter=(pipe
-        (d3-append 'rect')
+        (d3-append "rect")
         (d3-text (r/param))
       )
       update=(pipe
