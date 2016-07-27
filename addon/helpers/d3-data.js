@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
-export function d3Data(params/*, hash*/) {
+export function d3Data(params) {
   return function(selection){
     return selection.data(...params);
   };
