@@ -157,7 +157,15 @@ test('can provide custom key', function(assert) {
     return d ? d.name : this.id; 
   });
 
-  // Template block usage:
+/**
+ * Code example from https://github.com/d3/d3-selection#joining-data
+ ```js
+  d3.selectAll("rect")
+    .data(data, function(d) { return d ? d.name : this.id; })
+      .text(function(d) { return d.number; });
+ ```
+ */
+
   this.render(hbs`
     <svg></svg>
 
