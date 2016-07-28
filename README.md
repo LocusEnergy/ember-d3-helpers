@@ -6,7 +6,10 @@
 
 # ember-d3-helpers
 
-This library provides a suite of Ember helpers around the d3v4 API. Support for more features is ongoing.
+This library provides a collection of helpers for building D3 graphs via Ember.js templates. 
+Component and helpers provided in this library are intended to be primitives that one could use to build a D3 graphs.
+
+Support for more features is ongoing.
 
 ## Configuration
 
@@ -14,7 +17,8 @@ Currently, there are no configuration options for this addon in `config/environm
 
 ## Live Examples
 
-You can view a demo of a few ways to use these helpers [here](http://locusenergy.github.io/ember-d3-helpers)
+You can view a demo of a few ways to use these helpers [here](http://locusenergy.github.io/ember-d3-helpers). 
+Checkout [`ember-sparkles`](https://github.com/LocusEnergy/ember-sparkles) to see example implementations using these primitives.
 
 ## Available Helpers
 * [`d3-graph`](#d3-graph)
