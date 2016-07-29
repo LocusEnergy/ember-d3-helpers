@@ -1,8 +1,8 @@
 {{#if selection}}
-  {{yield (hash
-    graph=(component 'd3-graph' selection=selection tagName='')
-  )}}
   {{#if graph}}
     {{shhh (compute graph selection)}}
   {{/if}}
+  {{yield (hash
+    graph=(component 'd3-graph' selection=selection tagName='')
+  )}}
 {{/if}}

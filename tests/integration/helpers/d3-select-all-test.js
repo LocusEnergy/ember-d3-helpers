@@ -38,18 +38,19 @@ test('selection changes when selector is changed', function(assert){
 
   // Template block usage:
   this.render(hbs`
-    {{d3-graph (pipe
-      (d3-call (pipe
+    {{#d3-graph (pipe
         (d3-select-all "i")
         (d3-data data)
         (d3-join enter=(pipe
           (d3-append "i")
           (d3-attr "class" (r/param))
         ))
-      ))
-      (d3-select selector)
-      (d3-text "matched")
-    )}}
+      ) as |d3|}}
+      {{d3.graph (pipe
+        (d3-select selector)
+        (d3-text "matched")
+      )}}
+    {{/d3-graph}}
   `);
 
   assert.ok(this.$('.a:contains(matched)').length);
