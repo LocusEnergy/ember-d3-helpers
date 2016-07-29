@@ -13,8 +13,6 @@ test('applies attribute to selection', function(assert) {
     )}}
   `);
 
-  this.set('ready', true);
-
   assert.equal(this.$('g').attr('name'), 'applied');
 });
 
@@ -28,8 +26,6 @@ test('updates element when bound property changes', function(assert){
       (d3-attr "name" name)
     )}}
   `);
-
-  this.set('ready', true);
 
   assert.equal(this.$('g').attr('name'), 'initial value');
 

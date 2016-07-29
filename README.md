@@ -64,18 +64,14 @@ It can be used inline.
 )}}
 ```
 
-Or as a block component.
+It can be nested to allow multiple graph pipes to be rendered into the root component.
 
 ```hbs
-{{#d3-graph (pipe
-  (d3-select-all "rect")
-  (d3-attr "name" "fred")
-)}}
-  <rect></rect>
+{{#d3-graph as |selection|}}
+  {{d3-graph selection (pipe ...)}}
+  {{d3-graph selection (pipe ...)}}
 {{/d3-graph}}
 ```
-
-The template in the block becomes the initial DOM for this graph. 
 
 ### Selection Helpers
 
