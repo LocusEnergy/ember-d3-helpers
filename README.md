@@ -67,9 +67,9 @@ It can be used inline.
 It can be nested to allow multiple graph pipes to be rendered into the root component.
 
 ```hbs
-{{#d3-graph as |selection|}}
-  {{d3-graph selection (pipe ...)}}
-  {{d3-graph selection (pipe ...)}}
+{{#d3-graph as |d3|}}
+  {{d3.graph (pipe ...)}}
+  {{d3.graph (pipe ...)}}
 {{/d3-graph}}
 ```
 
