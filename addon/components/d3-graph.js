@@ -21,7 +21,6 @@ export default Ember.Component.extend({
     if (isNested) {
       defineProperty(this, 'selection', oneWay('_selection'));
       defineProperty(this, 'graph', oneWay('_graph'));
-      this.set('tagName', '');
       return;
     }
 

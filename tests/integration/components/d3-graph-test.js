@@ -7,9 +7,9 @@ moduleForComponent('d3-graph', 'Integration | Component | d3 graph', {
 
 test('it allows to render multiple nested graphs', function(assert) {
   this.render(hbs`
-    {{#d3-graph as |selection|}}
-      {{d3-graph selection (pipe (d3-append "rect") (d3-attr "name" "foo"))}}
-      {{d3-graph selection (pipe (d3-append "rect") (d3-attr "name" "bar"))}}      
+    {{#d3-graph as |d3|}}
+      {{d3.graph (pipe (d3-append "rect") (d3-attr "name" "foo"))}}
+      {{d3.graph (pipe (d3-append "rect") (d3-attr "name" "bar"))}}      
     {{/d3-graph}}
   `);
 
