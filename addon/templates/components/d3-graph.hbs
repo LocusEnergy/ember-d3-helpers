@@ -1,8 +1,17 @@
 {{#if selection}}
-  {{#if graph}}
-    {{shhh (compute graph selection)}}
+  {{#if hasBlock}}
+    {{#if graph}}
+      {{yield (hash
+        graph=(component 'd3-graph' selection=(compute (pipe graph (r/param)) selection) tagName='')
+      )}}
+    {{else}}
+      {{yield (hash
+        graph=(component 'd3-graph' selection=selection tagName='')
+      )}}
+    {{/if}}
+  {{else}}
+    {{#if graph}}
+      {{shhh (compute graph selection)}}
+    {{/if}}
   {{/if}}
-  {{yield (hash
-    graph=(component 'd3-graph' selection=selection tagName='')
-  )}}
 {{/if}}
