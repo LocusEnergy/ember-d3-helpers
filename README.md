@@ -73,6 +73,19 @@ It can be nested to allow multiple graph pipes to be rendered into the root comp
 {{/d3-graph}}
 ```
 
+You can pass a graph pipe into the parent component. The nested components will receive selection that's a result of the parent's graph pipe.
+
+```hbs
+{{#d3-graph (pipe 
+    (d3-select-all "rect")
+    (d3-data data)
+  ) as |d3|}}
+  {{! selection here will be result of pipe above }}
+  {{d3.graph (pipe ...)}}
+  {{d3.graph (pipe ...)}}
+{{
+```
+
 ### Selection Helpers
 
 #### `(d3-select selector)`
