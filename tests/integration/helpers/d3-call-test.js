@@ -7,9 +7,19 @@ moduleForComponent('d3-call', 'Integration | Helper | d3-call', {
 
 test('executes callback without changing piped value', function(assert) {
 
+  this.set('data', ['car', 'car', 'boat', 'boat']);
+
   this.render(hbs`
-    {{#d3-graph (pipe 
-      (d3-call (pipe 
+    {{d3-graph (pipe
+      (d3-call (pipe
+        (d3-select-all "i")
+        (d3-data data)
+        (d3-join enter=(pipe 
+          (d3-append "i")
+          (d3-attr "class" (r/param))
+        ))
+      ))
+      (d3-call (pipe
         (d3-select-all ".car")
         (d3-attr "color" "red")
       ))
@@ -20,11 +30,6 @@ test('executes callback without changing piped value', function(assert) {
       (d3-append 'i')
       (d3-attr "class" "truck")
     )}}
-      <i class="car"></i>
-      <i class="car"></i>
-      <i class="boat"></i>
-      <i class="boat"></i>
-    {{/d3-graph}}
   `);
 
   assert.equal(this.$('.car[color=red]').length, 2, "color red was applied to cars");
