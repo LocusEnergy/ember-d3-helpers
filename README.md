@@ -108,7 +108,7 @@ Selects all elements that match the specified selector string.
 ```hbs
 {{d3-graph (pipe
   (d3-select-all "rect")
-  (d3-join data)
+  (d3-data data)
   (d3-style "color" "red")
 )}}
 ```
