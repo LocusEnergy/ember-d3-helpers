@@ -1,0 +1,1 @@
+export { default } from 'ember-d3-helpers/components/d3-element';
