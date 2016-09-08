@@ -6,7 +6,7 @@ moduleForComponent('d3-element', 'Integration | Component | d3 element', {
 });
 
 test('uses d3-graph to render elements', function(assert) {
-  this.set('data', [ { q: 1 }, { q: 2 }, { q: 3 }])
+  this.set('data', [ { q: 1 }, { q: 2 }, { q: 3 }]);
   this.render(hbs`
     {{d3-element
       element-name='circle'
