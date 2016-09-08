@@ -6,19 +6,19 @@ moduleForComponent('d3-element', 'Integration | Component | d3 element', {
 });
 
 test('it renders', function(assert) {
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
 
-  this.render(hbs`{{d3-element}}`);
+  this.set('data', [ { q: 1 }, { q: 2 }, { q: 3}])
 
-  assert.equal(this.$().text().trim(), '');
-
-  // Template block usage:
   this.render(hbs`
-    {{#d3-element}}
-      template block text
-    {{/d3-element}}
+    {{d3-element
+      element-name='circle'
+      selector='my_data'
+      data=data
+      on-enter=(pipe
+        (d3-attr 'r' (r/get 'q'))
+      )
+    }}
   `);
 
-  assert.equal(this.$().text().trim(), 'template block text');
+  assert.equal(this.$('circle').length, 3, 'renders data');
 });
