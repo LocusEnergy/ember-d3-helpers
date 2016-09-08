@@ -1,6 +1,6 @@
 {
   "name": "ember-d3-helpers",
-  "version": "0.5.6",
+  "version": "0.5.7",
   "description": "Glimmer Template helpers using the D3v4 API",
   "directories": {
     "doc": "doc",

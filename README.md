@@ -108,7 +108,7 @@ Selects all elements that match the specified selector string.
 ```hbs
 {{d3-graph (pipe
   (d3-select-all "rect")
-  (d3-join data)
+  (d3-data data)
   (d3-style "color" "red")
 )}}
 ```
@@ -131,7 +131,7 @@ Joins the specified array of data with the selected elements, returning a new se
 )}}
 ```
 
-#### `(d3-join selector data accessor [enter=] [update=] [exit=])`
+#### `(d3-join [enter=] [update=] [exit=])`
 
 Helper for implementing D3's general update pattern. This helper doesn't have a corresponding function in the API because 
 this helper represents a pattern rather than a specific function in the API. Use it when you need to specify `selection.enter().update().exit()`.
