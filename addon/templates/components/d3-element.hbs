@@ -8,7 +8,7 @@
         (d3-append element-name)
         (d3-attr 'class' selector)
         (or enter-transition (d3-noop))
-        (d3-transition transition)
+        (if with-transition (d3-transition transition) (d3-noop))
         (or on-enter (d3-noop))
       )
 
