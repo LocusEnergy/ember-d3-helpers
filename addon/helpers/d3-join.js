@@ -2,13 +2,12 @@ import Ember from 'ember';
 
 export function d3Join(params, { enter, update, exit }) {
   return function(selection){
+    if (enter) {
+      selection.enter().call(enter);
+    }
 
     if (update) {
       update(selection);
-    }
-
-    if (enter) {
-      selection.enter().call(enter);
     }
 
     if (exit) {

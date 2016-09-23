@@ -20,15 +20,18 @@ Currently, there are no configuration options for this addon in `config/environm
 You can view a demo of a few ways to use these helpers [here](http://locusenergy.github.io/ember-d3-helpers). 
 Checkout [`ember-sparkles`](https://github.com/LocusEnergy/ember-sparkles) to see example implementations using these primitives.
 
-## Available Helpers
+## Components
 * [`d3-graph`](#d3-graph)
-* [Selection Helpers]
+* [`d3-element`](#d3-element)
+
+## Helpers
+* [Selection Helpers](#selection-helpers)
   - [`d3-select`](#d3-select)
   - [`d3-select-all`](#d3-select-all)
   - [`d3-join`](#d3-join)
   - [`d3-attr`](#d3-attr)
   - [`d3-call`](#d3-call)
-* [Transition Helpers]
+* [Transition Helpers](#transition-helpers)
   - [`d3-transition`](#d3-transition)
   - [`d3-transition-delay`](#d3-transition-delay)
   - [`d3-attr-tween`](#d3-attr-tween)
@@ -47,11 +50,11 @@ Checkout [`ember-sparkles`](https://github.com/LocusEnergy/ember-sparkles) to se
 	- [`immut-array`](#immut-array)
 	- [`time-interval`](#time-interval)
 
-## Usage
+# Usage
 
-### `{{d3-graph graph}}`
+## `{{d3-graph}}`
 
-`d3-graph` is the only component in this addon. It's used to provide root level 
+`d3-graph` is used to provide root level 
 selection to render discrete D3 elements, such as SVG `<svg>` and groups `<g>`. 
 You can change this with by specifying the component's `tagName` 
 (ie `{{d3-graph (pipe ...) tagName="svg"}}`).
@@ -85,6 +88,59 @@ You can pass a graph pipe into the parent component. The nested components will 
   {{d3.graph (pipe ...)}}
 {{
 ```
+----------
+
+
+## `{{d3-element}}`
+
+`d3-element` is used to render simple SVG elements using d3's dynamic data join. 
+
+#### Properties
+
+_required_
+* `element-name`: a string specifying the type of SVG element to render (`circle`, `rect`, etc.)
+* `data`: data to be bound to the component
+
+_optional_
+* `selector`: a unique selector string
+* `data-accessor`: optional accessor function to pass to d3's data join method
+* `transition`: a d3 transition object 
+
+
+#### Methods
+
+_required_
+* `on-enter`
+
+_optional_
+* `enter-transition`
+* `update-transition`
+* `on-update`: if not provided, the post-transition update step uses `on-enter` (mirrors typical D3 behavior)
+* `exit-transition`
+* `on-exit`
+
+#### example
+```hbs
+{{d3-element
+  element-name='circle'
+  selector='rotator'
+  data=points
+  on-enter=(pipe
+    (d3-attr 'cx' (r/get 'cx'))
+    (d3-attr 'cy' (r/get 'cy'))
+    (d3-attr 'r' 3)
+  )
+  update-transition=(pipe 
+    (d3-attr 'r' 0)
+  )
+  on-exit=(pipe 
+    (d3-attr 'r' 200)
+  )
+}}
+
+```
+
+----------
 
 ### Selection Helpers
 
@@ -191,6 +247,8 @@ Invokes the specified function exactly once, passing in this selection along wit
 )}}
 ```
 
+----------
+
 ### Transition Helpers
 
 #### `(d3-transition [transition])`
@@ -236,6 +294,8 @@ Apply a delay to a transition. Must be chained behind a transition.
 For each selected element, creates a tween for the attribute with the specified name with the specified interpolator value. 
 
 Good description of `transition.attrTween` can be found in [this example](http://bl.ocks.org/cmdoptesc/6228457).
+
+----------
 
 ### Linear scales
 
@@ -288,6 +348,8 @@ Point Scale description
 #### `cat-color-scale`
 Categorical color scale.
 
+----------
+
 ### Scale Derivatives
 
 #### `scale-ticks`
@@ -296,6 +358,8 @@ Scale ticks
 #### `scale-value`
 Get the calculated value from a scale
 
+----------
+
 ### Misc Helpers
 
 #### `immut-array`
@@ -303,6 +367,9 @@ Immutable array helper description
 
 #### `time-interval`
 A time interval helper.
+
+----------
+
 
 ## Installation
 
