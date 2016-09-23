@@ -26,7 +26,7 @@ test('is applied to selection', function(assert) {
   // wait for transition
   later(()=> {}, 250);
 
-  return wait().then(function(){
+  return wait().then(() => {
     assert.equal(this.$('g').attr('style'), 'color: rgb(255, 0, 0);');
   });
 });
