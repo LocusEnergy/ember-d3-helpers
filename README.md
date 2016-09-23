@@ -103,11 +103,11 @@ _required_
 
 _optional_
 * `selector`: a unique selector string
-* `data-accessor`: optional accessor function to pass to d3's data join method
+* `data-accessor`: accessor function to pass to d3's data join method
 * `transition`: a d3 transition object 
 
 
-#### Methods
+#### Configurable Pipes
 
 _required_
 * `on-enter`
