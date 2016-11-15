@@ -45,9 +45,6 @@ module.exports = function(environment) {
   if (environment === 'production') {
     ENV.locationType = 'hash';
     ENV.rootURL = '/ember-d3-helpers/';
-    ENV.locationType = 'hash';
-    ENV.rootURL = '/ember-d3-helpers/';
-
   }
 
   return ENV;
