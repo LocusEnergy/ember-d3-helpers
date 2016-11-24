@@ -3,7 +3,6 @@ import { module, test } from 'qunit';
 
 module('Unit | Utility | add options to scale');
 
-// Replace this with your real tests.
 test('it works', function(assert) {
   let callCounts = {};
   let scale = ['domain', 'rangeRound', 'range', 'clamp', 'nice'].reduce((hash, prop) => {
