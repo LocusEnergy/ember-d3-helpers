@@ -2,9 +2,18 @@
   "name": "ember-d3-helpers",
   "version": "0.5.13",
   "description": "Glimmer Template helpers using the D3v4 API",
+  "keywords": [
+    "ember-addon"
+  ],
+  "license": "MIT",
+  "author": "spencer516, zigahertz, embersherpa",
   "directories": {
     "doc": "doc",
     "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LocusEnergy/ember-d3-helpers"
   },
   "scripts": {
     "build": "ember build",
@@ -12,32 +21,25 @@
     "test": "ember try:each",
     "deploy": "ember github-pages:commit --message \"Deploy gh-pages from commit $(git rev-parse HEAD)\"; git push; git checkout -"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/LocusEnergy/ember-d3-helpers"
-  },
-  "engines": {
-    "node": ">= 0.12.0"
-  },
-  "author": "spencer516, zigahertz, embersherpa",
-  "license": "MIT",
+
   "devDependencies": {
     "broccoli-asset-rev": "^2.4.5",
     "ember-ajax": "^2.4.1",
     "ember-bootstrap": "0.6.4",
-    "ember-cli": "2.9.1",
+    "ember-cli": "2.10.0",
     "ember-cli-app-version": "^2.0.0",
     "ember-cli-dependency-checker": "^1.3.0",
     "ember-cli-github-pages": "0.0.8",
+    "ember-cli-htmlbars": "^1.0.10",
     "ember-cli-htmlbars-inline-precompile": "^0.3.3",
     "ember-cli-inject-live-reload": "^1.4.1",
-    "ember-cli-jshint": "^1.0.4",
+    "ember-cli-jshint": "^2.0.1",
     "ember-cli-qunit": "^3.0.1",
     "ember-cli-release": "^0.2.9",
     "ember-cli-sri": "^2.1.0",
     "ember-cli-test-loader": "^1.1.0",
     "ember-cli-uglify": "^1.2.0",
-    "ember-data": "^2.9.0-beta.1",
+    "ember-data": "^2.10.0",
     "ember-disable-prototype-extensions": "^1.1.0",
     "ember-export-application-global": "^1.0.5",
     "ember-load-initializers": "^0.5.1",
@@ -46,17 +48,18 @@
     "ember-sinon": "0.5.1",
     "loader.js": "^4.0.10"
   },
-  "keywords": [
-    "ember-addon"
-  ],
+
   "dependencies": {
     "ember-cli-babel": "^5.1.7",
     "ember-cli-htmlbars": "^1.0.10",
     "d3": "^4.2.0",
     "ember-d3": "^0.3.0",
-    "ember-composable-helpers": "1.0.0",
-    "ember-reactive-helpers": "0.3.5",
+    "ember-composable-helpers": "^1.1.2",
+    "ember-reactive-helpers": "0.4.0",
     "ember-truth-helpers": "1.2.0"
+  },
+  "engines": {
+    "node": ">= 0.12.0"
   },
   "ember-addon": {
     "configPath": "tests/dummy/config",
