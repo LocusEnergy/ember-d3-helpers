@@ -4,12 +4,10 @@ import { module, test } from 'qunit';
 
 module('Unit | Helper | d3 line');
 
-const { K } = Ember;
-
 test('it works', function(assert) {
   let options = {
-    xAccessor: K,
-    yAccessor: K
+    xAccessor() {},
+    yAccessor() {}
   };
   
   let line = d3Line([K, K], options);
