@@ -52,7 +52,7 @@
     "ember-cli-htmlbars": "^1.0.10",
     "d3": "^4.2.0",
     "ember-d3": "^0.3.0",
-    "ember-composable-helpers": "^1.1.2",
+    "ember-composable-helpers": "^2.0.0",
     "ember-reactive-helpers": "0.4.0",
     "ember-truth-helpers": "1.2.0"
   },
