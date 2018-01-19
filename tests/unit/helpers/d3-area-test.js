@@ -6,8 +6,6 @@ import { bandScale } from 'dummy/helpers/band-scale';
 
 module('Unit | Helper | d3 area');
 
-const { K } = Ember;
-
 test('it works', function(assert) {
   let scale = bandScale([
     ['hamilton', 'burr', 'washington'],
@@ -15,8 +13,8 @@ test('it works', function(assert) {
   ], {});
 
   let options = {
-    xAccessor: K,
-    yAccessor: K
+    xAccessor() {},
+    yAccessor() {}
   };
 
   let area = d3Area([scale, scale], options);
