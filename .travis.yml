@@ -16,11 +16,9 @@ cache:
 # we recommend testing LTS's and latest stable release (bonus points to beta/canary)
 env:
   global:
-    # See https://ggiit.io/vdao3 for details.
+    # See https://git.io/vdao3 for details.
     - JOBS=1
   matrix:
-#    - EMBER_TRY_SCENARIO=ember-lts-2.4
-#    - EMBER_TRY_SCENARIO=ember-lts-2.8
     - EMBER_TRY_SCENARIO=ember-lts-2.12
     - EMBER_TRY_SCENARIO=ember-lts-2.16
     - EMBER_TRY_SCENARIO=ember-lts-2.18

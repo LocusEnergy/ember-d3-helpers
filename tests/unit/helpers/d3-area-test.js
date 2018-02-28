@@ -1,4 +1,3 @@
-import Ember from 'ember';
 import { d3Area } from 'dummy/helpers/d3-area';
 import { module, test } from 'qunit';
 import { bandScale } from 'dummy/helpers/band-scale';
