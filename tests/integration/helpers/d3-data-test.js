@@ -2,6 +2,7 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
+import $ from 'jquery';
 
 module('Integration | Helper | d3-data', function(hooks) {
   setupRenderingTest(hooks);
@@ -82,7 +83,7 @@ module('Integration | Helper | d3-data', function(hooks) {
     var td = tr.selectAll("td")
       .data(function(d) { return d; })
       .enter().append("td")
-        .text(function(d) { return d; });  
+        .text(function(d) { return d; });
    ```
    */
 
@@ -109,7 +110,7 @@ module('Integration | Helper | d3-data', function(hooks) {
 
     assert.deepEqual(text(this.$('tr:eq(0) td')), [11975,  5871, 8916, 2868]);
     assert.deepEqual(text(this.$('tr:eq(1) td')), [ 1951, 10048, 2060, 6171]);
-    assert.deepEqual(text(this.$('tr:eq(2) td')), [ 8010, 16145, 8090, 8045]);    
+    assert.deepEqual(text(this.$('tr:eq(2) td')), [ 8010, 16145, 8090, 8045]);
     assert.deepEqual(text(this.$('tr:eq(3) td')), [ 1013,   990,  940, 6907]);
 
     function text(row) {
@@ -130,8 +131,8 @@ module('Integration | Helper | d3-data', function(hooks) {
       {name: 'Kwon', number: 34}
     ]);
 
-    this.set('key', function(d) { 
-      return d ? d.name : this.id; 
+    this.set('key', function(d) {
+      return d ? d.name : this.id;
     });
 
   /**
