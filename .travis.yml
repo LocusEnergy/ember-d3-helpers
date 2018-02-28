@@ -1,5 +1,5 @@
 ---
-sudo: required
+sudo: false
 dist: trusty
 language: node_js
 node_js:
@@ -36,6 +36,7 @@ before_install:
   - yarn global add bower
 
 install:
+  - ping -c 1 www.github.com
   - yarn install --no-lockfile --non-interactive
   - bower install
 
