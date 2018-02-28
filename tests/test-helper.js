@@ -11,5 +11,5 @@ start();
 // Add a custom "approximate" assertion
 QUnit.assert.approximate = function (number, expected, message, error = 0.000001) {
   let result = number === expected || Math.abs(number - expected) < error || false;
-  this.push(result, number, expected, message);
+  this.pushResult({ result, actual: number, expected, message });
 };
