@@ -1,3 +1,7 @@
+import { helper } from '@ember/component/helper';
+import { assert } from '@ember/debug';
+import { get } from '@ember/object';
+import { capitalize } from '@ember/string';
 import {
   timeMillisecond,
   timeSecond,
@@ -15,12 +19,6 @@ import {
   timeFriday,
   timeSaturday
 } from 'd3-time';
-import Ember from 'ember';
-const {
-  assert,
-  get,
-  String: { capitalize }
-} = Ember;
 const INTERVALS = {
   timeMillisecond,
   timeSecond,
@@ -45,4 +43,4 @@ export function timeInterval([intervalName]) {
   return interval;
 }
 
-export default Ember.Helper.helper(timeInterval);
+export default helper(timeInterval);

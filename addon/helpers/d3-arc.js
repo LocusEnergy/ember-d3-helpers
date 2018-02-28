@@ -1,7 +1,6 @@
-import Ember from 'ember';
+import { helper } from '@ember/component/helper';
+import { isPresent } from '@ember/utils';
 import { arc } from 'd3-shape';
-
-const { isPresent } = Ember;
 
 export function d3Arc(params, { innerRadius, outerRadius, startAngle, endAngle }) {
   let arcFn = arc().outerRadius(outerRadius).innerRadius(innerRadius);
@@ -11,4 +10,4 @@ export function d3Arc(params, { innerRadius, outerRadius, startAngle, endAngle }
   return arcFn;
 }
 
-export default Ember.Helper.helper(d3Arc);
+export default helper(d3Arc);

@@ -1,4 +1,4 @@
-import Ember from 'ember';
+import { helper } from '@ember/component/helper';
 
 export function d3Call([ callback, ...args ]) {
   return function(d3el) {
@@ -6,4 +6,4 @@ export function d3Call([ callback, ...args ]) {
   };
 }
 
-export default Ember.Helper.helper(d3Call);
+export default helper(d3Call);

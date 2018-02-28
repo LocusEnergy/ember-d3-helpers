@@ -1,13 +1,10 @@
-import Ember from 'ember';
+import { A as emberArray } from '@ember/array';
+import Component from '@ember/component';
+import { run } from '@ember/runloop';
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
-const {
-  A: emberArray,
-  Component,
-  run
-} = Ember;
 
 module('Integration | Helper | immut array', function(hooks) {
   setupRenderingTest(hooks);

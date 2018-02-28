@@ -1,4 +1,4 @@
-import Ember from 'ember';
+import { helper } from '@ember/component/helper';
 import { scaleBand } from 'd3-scale';
 import addOptionsToOrdinalScale from '../utils/add-options-to-ordinal-scale';
 import guidDomainScale from '../utils/guid-domain-scale';
@@ -9,4 +9,4 @@ export function bandScale([domain, range], hash) {
   return scale;
 }
 
-export default Ember.Helper.helper(bandScale);
+export default helper(bandScale);

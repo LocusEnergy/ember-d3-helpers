@@ -1,5 +1,4 @@
-import Ember from 'ember';
-const { assert } = Ember;
+import { assert } from '@ember/debug';
 
 export default function addOptionsToOrdinalScale(scale, domain, range, hash, type) {
   scale.domain(domain || []);

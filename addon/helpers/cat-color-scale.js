@@ -1,4 +1,6 @@
-import Ember from 'ember';
+import { helper } from '@ember/component/helper';
+import { assert } from '@ember/debug';
+import { isPresent } from '@ember/utils';
 import {
   scaleOrdinal,
   schemeCategory10,
@@ -7,11 +9,6 @@ import {
   schemeCategory20
 } from 'd3-scale';
 import guidDomainScale from '../utils/guid-domain-scale';
-
-const {
-  assert,
-  isPresent,
-} = Ember;
 
 const SCALES = {
   10: schemeCategory10,
@@ -35,4 +32,4 @@ export function catColorScale([type, domain]) {
   return scale;
 }
 
-export default Ember.Helper.helper(catColorScale);
+export default helper(catColorScale);

@@ -1,4 +1,4 @@
-import Ember from 'ember';
+import { helper } from '@ember/component/helper';
 
 export function d3On([ typenames, listener, capture=false ]) {
   return function(d3el) {
@@ -6,4 +6,4 @@ export function d3On([ typenames, listener, capture=false ]) {
   };
 }
 
-export default Ember.Helper.helper(d3On);
+export default helper(d3On);

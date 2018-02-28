@@ -1,4 +1,4 @@
-import Ember from 'ember';
+import { helper } from '@ember/component/helper';
 import _ from 'lodash/lodash';
 
 export function letterFrequency([string]) {
@@ -8,4 +8,4 @@ export function letterFrequency([string]) {
   });
 }
 
-export default Ember.Helper.helper(letterFrequency);
+export default helper(letterFrequency);

@@ -1,11 +1,6 @@
-import Ember from 'ember';
-const {
-  Helper,
-  A: emberArray,
-  observer,
-  isArray,
-  set
-} = Ember;
+import Helper from '@ember/component/helper';
+import { isArray, A as emberArray } from '@ember/array';
+import { set, observer } from '@ember/object';
 
 export default Helper.extend({
   compute([array]) {

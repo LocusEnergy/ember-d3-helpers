@@ -1,4 +1,4 @@
-import Ember from 'ember';
+import { helper } from '@ember/component/helper';
 import { scaleTime } from 'd3-scale';
 import addOptionsToScale from '../utils/add-options-to-scale';
 
@@ -8,4 +8,4 @@ export function timeScale([domain, range], hash) {
   return scale;
 }
 
-export default Ember.Helper.helper(timeScale);
+export default helper(timeScale);

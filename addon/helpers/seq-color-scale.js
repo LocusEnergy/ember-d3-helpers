@@ -1,4 +1,7 @@
-import Ember from 'ember';
+import { helper } from '@ember/component/helper';
+import { assert } from '@ember/debug';
+import { isPresent } from '@ember/utils';
+import { underscore, camelize } from '@ember/string';
 import {
   scaleSequential,
   interpolateViridis,
@@ -10,11 +13,6 @@ import {
   interpolateRainbow,
   interpolateCubehelixDefault
 } from 'd3-scale';
-const {
-  assert,
-  isPresent,
-  String: { camelize, underscore },
-} = Ember;
 
 const SCALES = {
   viridis: interpolateViridis,
@@ -43,4 +41,4 @@ export function seqColorScale([type, domain]) {
   return scale;
 }
 
-export default Ember.Helper.helper(seqColorScale);
+export default helper(seqColorScale);

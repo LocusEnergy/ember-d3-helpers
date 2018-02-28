@@ -1,4 +1,4 @@
-import Ember from 'ember';
+import { helper } from '@ember/component/helper';
 import { select } from 'd3-selection';
 
 export function d3Select([selector]/*, hash*/) {
@@ -7,4 +7,4 @@ export function d3Select([selector]/*, hash*/) {
   };
 }
 
-export default Ember.Helper.helper(d3Select);
+export default helper(d3Select);

@@ -1,12 +1,10 @@
-import Ember from 'ember';
+import { scheduleOnce } from '@ember/runloop';
+import Component from '@ember/component';
+import { isNone } from '@ember/utils';
 import { select } from 'd3-selection';
 import layout from '../templates/components/d3-graph';
 
-const {
-  isNone
-} = Ember;
-
-export default Ember.Component.extend({
+export default Component.extend({
   layout,
   tagName: 'g',
 
@@ -15,7 +13,7 @@ export default Ember.Component.extend({
 
     let selection = this.get('selection');
     if (isNone(selection)) {
-      Ember.run.scheduleOnce('afterRender', this, 'renderChart');
+      scheduleOnce('afterRender', this, 'renderChart');
     }
   },
 
