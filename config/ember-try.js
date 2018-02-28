@@ -1,5 +1,6 @@
 /*jshint node:true*/
 module.exports = {
+  useYarn: true,
   scenarios: [
     {
       name: 'ember-lts-2.4',
@@ -24,6 +25,32 @@ module.exports = {
       }
     },
     {
+      name: 'ember-lts-2.12',
+      npm: {
+        devDependencies: {
+          'ember-source': '~2.12.0'
+        }
+      },
+      bower: {
+        dependencies: {
+          'ember': null
+        },
+      }
+    },
+    {
+      name: 'ember-lts-2.16',
+      npm: {
+        devDependencies: {
+          'ember-source': '~2.16.0'
+        }
+      },
+      bower: {
+        dependencies: {
+          'ember': null
+        },
+      }
+    },
+    {
       name: 'ember-release',
       bower: {
         dependencies: {
@@ -31,6 +58,11 @@ module.exports = {
         },
         resolutions: {
           'ember': 'release'
+        }
+      },
+      npm: {
+        devDependencies: {
+          'ember-source': null
         }
       }
     },
@@ -43,6 +75,11 @@ module.exports = {
         resolutions: {
           'ember': 'beta'
         }
+      },
+      npm: {
+        devDependencies: {
+          'ember-source': null
+        }
       }
     },
     {
@@ -53,6 +90,11 @@ module.exports = {
         },
         resolutions: {
           'ember': 'canary'
+        }
+      },
+      npm: {
+        devDependencies: {
+          'ember-source': null
         }
       }
     }

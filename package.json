@@ -51,16 +51,18 @@
     "ember-cli-babel": "^6.11.0",
     "ember-cli-htmlbars": "^1.0.10",
     "ember-composable-helpers": "^2.0.0",
-    "ember-d3": "^0.3.0",
+    "ember-d3": "^0.4.0",
     "ember-reactive-helpers": "0.4.0",
-    "ember-truth-helpers": "^1.2.0",
-    "phantomjs": "^2.1.7"
+    "ember-truth-helpers": "^1.2.0"
   },
   "engines": {
     "node": ">= 0.12.0"
   },
   "ember-addon": {
     "configPath": "tests/dummy/config",
-    "demoURL": "http://locusenergy.github.io/ember-d3-helpers"
+    "demoURL": "http://locusenergy.github.io/ember-d3-helpers",
+    "versionCompatibility": {
+      "ember": ">2.4.0 <=3.0.0"
+    }
   }
 }
