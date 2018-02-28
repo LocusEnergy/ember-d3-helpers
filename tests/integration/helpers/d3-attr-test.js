@@ -1,35 +1,37 @@
-import { moduleForComponent, test } from 'ember-qunit';
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
-moduleForComponent('d3-attr', 'Integration | Helper | d3-attr', {
-  integration: true
-});
+module('Integration | Helper | d3-attr', function(hooks) {
+  setupRenderingTest(hooks);
 
-test('applies attribute to selection', function(assert) {
-  // Template block usage:
-  this.render(hbs`
-    {{d3-graph (pipe
-      (d3-attr "name" "applied")
-    )}}
-  `);
+  test('applies attribute to selection', async function(assert) {
+    // Template block usage:
+    await render(hbs`
+      {{d3-graph (pipe
+        (d3-attr "name" "applied")
+      )}}
+    `);
 
-  assert.equal(this.$('g').attr('name'), 'applied');
-});
+    assert.equal(this.$('g').attr('name'), 'applied');
+  });
 
-test('updates element when bound property changes', function(assert){
+  test('updates element when bound property changes', async function(assert) {
 
-  this.set('name', 'initial value');
+    this.set('name', 'initial value');
 
-  // Template block usage:
-  this.render(hbs`
-    {{d3-graph (pipe
-      (d3-attr "name" name)
-    )}}
-  `);
+    // Template block usage:
+    await render(hbs`
+      {{d3-graph (pipe
+        (d3-attr "name" name)
+      )}}
+    `);
 
-  assert.equal(this.$('g').attr('name'), 'initial value');
+    assert.equal(this.$('g').attr('name'), 'initial value');
 
-  this.set('name', 'updated value');
+    this.set('name', 'updated value');
 
-  assert.equal(this.$('g').attr('name'), 'updated value');
+    assert.equal(this.$('g').attr('name'), 'updated value');
+  });
 });

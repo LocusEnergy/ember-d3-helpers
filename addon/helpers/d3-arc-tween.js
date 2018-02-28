@@ -1,4 +1,4 @@
-import Ember from 'ember';
+import { helper } from '@ember/component/helper';
 
 import { interpolate } from 'd3-interpolate';
 
@@ -12,4 +12,4 @@ function d3ArcTween([arc]) {
   };
 }
 
-export default Ember.Helper.helper(d3ArcTween);
+export default helper(d3ArcTween);

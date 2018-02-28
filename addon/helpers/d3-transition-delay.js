@@ -1,4 +1,4 @@
-import Ember from 'ember';
+import { helper } from '@ember/component/helper';
 
 export function d3TransitionDelay([amount]/*, hash*/) {
   return function(transition){
@@ -6,4 +6,4 @@ export function d3TransitionDelay([amount]/*, hash*/) {
   };
 }
 
-export default Ember.Helper.helper(d3TransitionDelay);
+export default helper(d3TransitionDelay);

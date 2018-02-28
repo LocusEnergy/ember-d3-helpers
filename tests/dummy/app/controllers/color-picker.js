@@ -1,7 +1,7 @@
-import Ember from 'ember';
-const { computed, get } = Ember;
+import Controller from '@ember/controller';
+import { get, computed } from '@ember/object';
 
-export default Ember.Controller.extend({
+export default Controller.extend({
   selectedColor: '',
   colors: 5,
   hues: 5,

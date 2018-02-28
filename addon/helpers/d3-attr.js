@@ -1,4 +1,4 @@
-import Ember from 'ember';
+import { helper } from '@ember/component/helper';
 
 export function d3Attr([ attribute, value ]) {
   return function(d3el) {
@@ -6,4 +6,4 @@ export function d3Attr([ attribute, value ]) {
   };
 }
 
-export default Ember.Helper.helper(d3Attr);
+export default helper(d3Attr);

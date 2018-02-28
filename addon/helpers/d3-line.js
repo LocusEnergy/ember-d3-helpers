@@ -1,4 +1,4 @@
-import Ember from 'ember';
+import { helper } from '@ember/component/helper';
 import { line, curveBasis } from 'd3-shape';
 
 export function d3Line([ xScale, yScale ], { xAccessor, yAccessor }) {
@@ -7,4 +7,4 @@ export function d3Line([ xScale, yScale ], { xAccessor, yAccessor }) {
   return line().x(xFn).y(yFn).curve(curveBasis);
 }
 
-export default Ember.Helper.helper(d3Line);
+export default helper(d3Line);

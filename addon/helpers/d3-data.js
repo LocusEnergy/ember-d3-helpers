@@ -1,4 +1,4 @@
-import Ember from 'ember';
+import { helper } from '@ember/component/helper';
 
 export function d3Data(params) {
   return function(selection){
@@ -6,4 +6,4 @@ export function d3Data(params) {
   };
 }
 
-export default Ember.Helper.helper(d3Data);
+export default helper(d3Data);

@@ -1,6 +1,5 @@
-import Ember from 'ember';
-
-const { get } = Ember;
+import { helper } from '@ember/component/helper';
+import { get } from '@ember/object';
 
 export function d3Get([ key ]) {
   return function(d){
@@ -12,4 +11,4 @@ export function d3Get([ key ]) {
   };
 }
 
-export default Ember.Helper.helper(d3Get);
+export default helper(d3Get);
