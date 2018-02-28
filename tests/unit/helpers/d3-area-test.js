@@ -5,20 +5,18 @@ import { bandScale } from 'dummy/helpers/band-scale';
 
 
 module('Unit | Helper | d3 area', function() {
-  const { K } = Ember;
-
   test('it works', function(assert) {
-    let scale = bandScale([
+    const scale = bandScale([
       ['hamilton', 'burr', 'washington'],
       [0, 100]
     ], {});
 
-    let options = {
-      xAccessor: K,
-      yAccessor: K
+    const options = {
+      xAccessor() { return this; },
+      yAccessor() { return this; }
     };
 
-    let area = d3Area([scale, scale], options);
+    const area = d3Area([scale, scale], options);
     assert.equal(typeof area, 'function', 'returns a function');
   });
 });
