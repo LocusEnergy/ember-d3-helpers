@@ -2,15 +2,10 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render, settled } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
+import { later } from '@ember/runloop';
 
 module('Integration | Helper | d3-transition', function(hooks) {
   setupRenderingTest(hooks);
-
-  import Ember from 'ember';
-
-  const {
-    run: { later }
-  } = Ember;
 
   test('is applied to selection', async function(assert) {
     assert.expect(1);
