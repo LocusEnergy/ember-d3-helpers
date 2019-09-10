@@ -53,8 +53,7 @@
     "ember-composable-helpers": "^2.0.0",
     "ember-d3": "^0.4.0",
     "ember-reactive-helpers": "0.4.0",
-    "ember-truth-helpers": "^1.2.0",
-    "phantomjs": "^2.1.7"
+    "ember-truth-helpers": "^1.2.0"
   },
   "engines": {
     "node": ">= 0.12.0"
